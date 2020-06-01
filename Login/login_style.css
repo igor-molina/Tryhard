@@ -1,9 +1,99 @@
-html{
-    height: 100%;
-}
+@import url(https://fonts.googleapis.com/css?family=MedievalSharp);
 
 body{
-    margin:0;
+    margin: 0;
     padding:0;
-    
+    background-image: url("images/pilars.jpg");
+    color: #ffffff;
+    word-wrap:break-word !important;
+    font-family: 'MedievalSharp';
+}
+
+.card .torch-left img{
+    position: absolute;
+    height: 40px;
+    left: 85%;
+}
+
+.card .torch-right img{
+    position: absolute;
+    height: 40px;
+    transform: scaleX(-1);
+}
+
+.card{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background-color: rgb(66, 56, 49);
+    box-sizing: border-box;
+    -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+    -moz-box-shadow: 9px 7px 5px rgba(228, 181, 93, 0.77);
+    box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+    border-radius: 10px;
+}
+
+.card h1{
+    margin: 0 0 30px;
+    padding: 0;
+    color: #ffffff;
+    text-align: center;
+}
+
+.card p{
+    margin: 0 0 30px;
+    padding: 0;
+    color: #ffffff;
+    text-align: center;;
+}
+
+.card .form-group{
+    position: relative;
+}
+
+.card .form-group{
+    position: relative;
+}
+
+.card .form-group input{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    outline: none;
+    background: transparent;
+}
+
+.card .form-group button{
+    background-color: #8B4513;
+    color: white;
+    border: 4px solid #8B4513	; /* Green */
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    font-size: 20px;
+    font-family: 'Medieval Sharp';
+    position: relative;
+    width: 150px;
+    left: 25%;
+}
+
+.card .form-group button:hover {
+    background-color: #ffffff; /* Green */
+    color: brown;
+    border: 4px solid white;
+    cursor: pointer;
+  }
+
+a:visited{
+    color: white;
+}
+
+a:link{
+    color: white;
 }

@@ -13,12 +13,12 @@
         $tbUsers = mysqli_fetch_array($result);
         $_SESSION['user']=$tbUsers['uEmail'];
 
-        header("Location: ../Home/homePage.php");
+        header("Location:../Home/home_page.php");
     }
 
     else
     {
-        $message = "Email ou senha incorretas!"
+        $message = "Email ou senha incorretas!";
     }
 ?>
 <html>
@@ -29,6 +29,6 @@
     </head>
     <body>
         <p><?php echo $message; ?></p>
-        <p>Clique <a href="index.php">aqui</a> para voltar</p>
+        <p>Clique <a href="session_control.php">aqui</a> para voltar</p>
     </body>
 </html>
