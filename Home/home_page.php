@@ -1,6 +1,19 @@
 <?php 
     include "../Login/protection.php";
-    include "../Database/conection.php";
+	include "../Database/connection.php";
+	
+	/*if(isset($_POST['publish'])){
+		if($_FILES["file"]["error"] > 0){
+			$texto = $_POST["texto"];
+			$hoje = date("Y-a-d");
+
+			if($text ==""){
+				echo "<script type='javascript'>alert('Não podes fazer uma publicação vazia.');";
+			}else{
+				$query = "INSERT INTO pubs(uNickname, pTexto, pData) VALUES ("
+			}
+		}
+	}*/
 ?>
 
 <!doctype html>
@@ -22,7 +35,7 @@
 
 		<img src="images/book.png" class="adventure-books">
 
-		<img src="images/adicionar.png" class="add-alies">
+		<img src="images/beer.png" class="add-alies">
 
 		<div class="overflow-container">
 
@@ -40,11 +53,8 @@
 						<li><a href="">Account</a></li>
 					</ul>
 				</li>
-
 				<li><a href="#">Livros</a></li>
-
 				<li><a href="#">Recrute um aliado</a></li>
-
 			</ul>
 
 		</div>
@@ -58,13 +68,18 @@
 	<div id="main">
 
 		<div id="main-contents">
-
-			<h1>Página principal</h1>
-
+			<form method="POST" enctype="multipart/form-data">
+				<br/>
+				<textarea placeholder="Publique algo" name="texto"></textarea>
+				<label for="file-input">
+					<img src="images/gallery.png" title="Inserir uma imagem"/>
+				</label>
+				<input type="submit" value="Publicar" name="publish"/>
+				
+				<input type="file" id="file-input" name="file" hidden/>
+			</form>
 		</div>
-
 	</div>
-
 </div>
 </body>
 </html>
