@@ -3,7 +3,7 @@
 body{
     margin: 0;
     padding:0;
-    background-image: url("images/pilars.jpg");
+    background-image: url("../images/pilars.jpg");
     color: #ffffff;
     word-wrap:break-word !important;
     font-family: 'MedievalSharp';

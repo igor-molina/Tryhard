@@ -2,18 +2,72 @@
     include "../Login/protection.php";
 	include "../Database/connection.php";
 	
-	/*if(isset($_POST['publish'])){
+	if(isset($_POST['publish'])){
 		if($_FILES["file"]["error"] > 0){
-			$texto = $_POST["texto"];
-			$hoje = date("Y-a-d");
+			$text = $_POST["texto"];
+			$today = date("Y-a-d");
+			$give_me_the_user = "SELECT uNickname FROM users WHERE uEmail = '".$_SESSION['user']."'";
+			$user_result = mysqli_query($connectString, $give_me_the_user);
+
+			$results = mysqli_num_rows($user_result);
+
+			if($results > 0){
+				$nickname = mysqli_fetch_assoc($user_result);
+				$user_nickname = $nickname ["uNickname"];
+			}
+			else{
+				echo "Usuário inexistente!";
+			}
+
+			if($text ==""){
+				echo "<script type='javascript'>alert('Não podes fazer uma publicação vazia.');"; //Não funciona esse script
+			}else{
+				$queryPub = "INSERT INTO pubs(uNickname, pTexto, pData) VALUES ('$nickname', '$text', '$today')";
+				$data = mysqli_query($connectString, $queryPub);
+
+				if($data){
+					header('Location: home_page.php');
+				}else{
+					echo "Erro ao postar.";
+				}
+			}
+		}else{
+
+			$give_me_the_user = "SELECT uNickname FROM users WHERE uEmail = '".$_SESSION['user']."'";
+			$user_result = mysqli_query($connectString, $give_me_the_user);
+
+			$results = mysqli_num_rows($user_result);
+
+			if($results > 0){
+				$nickname = mysqli_fetch_assoc($user_result);
+				$user_nickname = $nickname ["uNickname"];
+			}
+			else{
+				echo "Erro ao buscar o usuário";
+			}
+
+			$n = rand(0, 1000000);
+			$img = $n.$_FILES["file"]["name"];
+
+			move_uploaded_file($_FILES["file"]["tmp_name"], "../Upload/".$img);
+
+			$text = $_POST['texto'];
+			$today = date("Y-m-d");
 
 			if($text ==""){
 				echo "<script type='javascript'>alert('Não podes fazer uma publicação vazia.');";
 			}else{
-				$query = "INSERT INTO pubs(uNickname, pTexto, pData) VALUES ("
+				$queryPub = "INSERT INTO pubs(uNickname, pTexto, pImagem, pData) VALUES ('$user_nickname', '$text', '$img', '$today')";
+				$data = mysqli_query($connectString, $queryPub);
+
+				if($data){
+					header('Location: home_page.php');
+				}else{
+					echo "Erro ao postar.";
+				}
 			}
 		}
-	}*/
+	}
 ?>
 
 <!doctype html>
@@ -29,13 +83,13 @@
 
 	<nav role="navigation" class="menu">
 
-		<img src="images/chest.png" class="inventory">
+		<img src="../images/chest.png" class="inventory">
 
-		<img src="images/pergaminho.png" class="create-session">
+		<img src="../images/pergaminho.png" class="create-session">
 
-		<img src="images/book.png" class="adventure-books">
+		<img src="../images/book.png" class="adventure-books">
 
-		<img src="images/beer.png" class="add-alies">
+		<img src="../images/beer.png" class="add-alies">
 
 		<div class="overflow-container">
 
@@ -72,7 +126,7 @@
 				<br/>
 				<textarea placeholder="Publique algo" name="texto"></textarea>
 				<label for="file-input">
-					<img src="images/gallery.png" title="Inserir uma imagem"/>
+					<img src="../images/gallery.png" title="Inserir uma imagem"/>
 				</label>
 				<input type="submit" value="Publicar" name="publish"/>
 				

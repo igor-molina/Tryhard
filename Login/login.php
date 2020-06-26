@@ -16,10 +16,10 @@ include "functions_login.php";
         <div class="row">
             <div class="card">
                     <div class="torch-left">
-                        <img src="images/torch2.gif">
+                        <img src="../images/torch2.gif">
                     </div>
                     <div class="torch-right">
-                        <img src="images/torch2.gif">
+                        <img src="../images/torch2.gif">
                     </div>
                 <article class="card-body">
                     <h1>Bem-vindo à taverna</h1>
@@ -43,8 +43,7 @@ include "functions_login.php";
                         <br>
                         <br>
                         <p class="forget"><a href="#">Esqueceu a senha?</a></p>
-                        <p class="register">Não possui uma conta?<a href="#"> Registre-se</a></p>
-                        
+                        <p class="register">Não possui uma conta?<a href="../Register/new_account.php" onclick="flipPage(1)"> Registre-se</a></p>
                     </form>
                 </article>
             </div> <!-- card.// -->

@@ -1,10 +1,10 @@
 <?php
     session_start();
 
-    include "../Database/conection.php";
+    include "../Database/connection.php";
 
-    $sqlConection = "select * from users where uEmail ='".$_POST['fEmail']."'and uPassword='".$_POST['fPassword']."'"; //String que confirma integridade dos dados na tabela
-    $result = mysqli_query($conectString, $sqlConection); //cria conexão
+    $sqlConnection = "select * from users where uEmail ='".$_POST['fEmail']."'and uPassword='".$_POST['fPassword']."'"; //String que confirma integridade dos dados na tabela
+    $result = mysqli_query($connectString, $sqlConnection); //cria conexão
 
     $qtdRows = mysqli_num_rows($result); //conta quantidade de linhas resultantes da busca
 
